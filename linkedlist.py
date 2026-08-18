@@ -51,7 +51,31 @@ class LinkedList:
 
             current = current.next
         return False
-        
+
+    def addNodeinbetween(self, index, Value):
+
+        new_node = Node(Value)
+
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+
+        elif index == 0:
+            new_node.next = self.head
+            self.head = new_node
+
+        else:
+            temp = self.head
+
+        for i in range(index - 1):
+            temp = temp.next
+
+        new_node.next = temp.next
+        temp.next = new_node
+
+        if new_node.next is None:
+            self.tail = new_node
+            
     def deletefirst(self):
         if self.head is None:
             print("list is empty")
@@ -70,12 +94,9 @@ class LinkedList:
             self.tail=None
         current =self.head   
         while current.next != self.tail:
-            current = current.next
+            current=current.next
         current.next=None
         self.tail=current
-
-
-
 
 
 linkedlistobj = LinkedList()
@@ -102,5 +123,7 @@ else:
 linkedlistobj.deletefirst()
 linkedlistobj.display()
 linkedlistobj.deletelast()
+linkedlistobj.display()
+linkedlistobj.addNodeinbetween(2,90)
 linkedlistobj.display()
 
