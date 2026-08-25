@@ -8,14 +8,11 @@ class BST:
         self.rightchild = None
 
 
-# Insert node into BST
-def insertNode(rootNode, nodeValue):
+def insertNode(rootNode, nodeValue):#o(logN)
 
-    # If tree is empty
     if rootNode.data is None:
         rootNode.data = nodeValue
 
-    # Insert in left subtree
     elif nodeValue <= rootNode.data:
 
         if rootNode.leftchild is None:
@@ -23,7 +20,6 @@ def insertNode(rootNode, nodeValue):
         else:
             insertNode(rootNode.leftchild, nodeValue)
 
-    # Insert in right subtree
     else:
 
         if rootNode.rightchild is None:
@@ -32,8 +28,6 @@ def insertNode(rootNode, nodeValue):
             insertNode(rootNode.rightchild, nodeValue)
 
 
-# Preorder Traversal
-# Root -> Left -> Right
 def preOrderTraversal(rootNode):
     if rootNode is None:
         return
@@ -42,9 +36,6 @@ def preOrderTraversal(rootNode):
     preOrderTraversal(rootNode.leftchild)
     preOrderTraversal(rootNode.rightchild)
 
-
-# Inorder Traversal
-# Left -> Root -> Right
 def inOrderTraversal(rootNode):
     if rootNode is None:
         return
@@ -54,8 +45,6 @@ def inOrderTraversal(rootNode):
     inOrderTraversal(rootNode.rightchild)
 
 
-# Postorder Traversal
-# Left -> Right -> Root
 def postOrderTraversal(rootNode):
     if rootNode is None:
         return
@@ -65,10 +54,8 @@ def postOrderTraversal(rootNode):
     print(rootNode.data, end=" ")
 
 
-# Create empty BST
 bstobj = BST(None)
 
-# Insert nodes
 insertNode(bstobj, 70)
 insertNode(bstobj, 50)
 insertNode(bstobj, 90)
@@ -81,7 +68,6 @@ insertNode(bstobj, 40)
 insertNode(bstobj, 10)
 
 
-# Display traversals
 print("Preorder:")
 preOrderTraversal(bstobj)
 
